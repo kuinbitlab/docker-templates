@@ -1,0 +1,14 @@
+version: '3'
+services:
+  esphome:
+    container_name: esphome
+    image: esphome/esphome
+    command: esphome dashboard --username root --password root@pass
+    environment:
+      TZ: 'Asia/Kolkata'
+    volumes:
+      - ./config:/config
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
+    privileged: true
+    network_mode: host
